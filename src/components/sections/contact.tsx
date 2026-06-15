@@ -35,7 +35,7 @@ export function Contact() {
               Start Your <span className="text-crimson">Journey</span>
             </h2>
             <div className="mb-8 mt-6 h-[3px] w-12 bg-crimson" />
-            <p className="mb-10 text-[0.95rem] leading-[1.8] text-[#aaaaaa]">
+            <p className="mb-10 text-[0.95rem] leading-[1.8] text-foreground/70">
               The application takes under 2 minutes. Tell us your goals,
               we&apos;ll tell you exactly how we can help. No commitment required
               until you decide it&apos;s the right fit.
@@ -45,7 +45,7 @@ export function Contact() {
                 <a
                   key={s.code}
                   href={s.href}
-                  className="group flex items-center gap-4 border-l-[3px] border-transparent bg-card px-5 py-4 text-sm font-semibold tracking-[0.06em] text-[#aaaaaa] transition-colors hover:border-crimson hover:bg-[#1a1a1a] hover:text-foreground"
+                  className="group flex items-center gap-4 border-l-[3px] border-transparent bg-card px-5 py-4 text-sm font-semibold tracking-[0.06em] text-foreground/70 transition-colors hover:border-crimson hover:bg-accent hover:text-foreground"
                 >
                   <span className="flex size-9 shrink-0 items-center justify-center border border-crimson/30 bg-crimson/10 font-display text-sm tracking-[0.04em] text-crimson">
                     {s.code}
@@ -135,7 +135,7 @@ export function Contact() {
                 />
               </div>
 
-              <label className="flex cursor-pointer items-center gap-2.5 bg-card p-8 text-[0.82rem] text-[#aaaaaa]">
+              <label className="flex cursor-pointer items-center gap-2.5 bg-card p-8 text-[0.82rem] text-foreground/70">
                 <input
                   type="checkbox"
                   defaultChecked

@@ -55,7 +55,7 @@ export function Transformations() {
                 <figcaption className="mb-6 inline-flex items-center gap-2 border border-crimson/30 bg-crimson/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.1em] text-crimson">
                   {t.result}
                 </figcaption>
-                <blockquote className="mb-7 text-[0.92rem] italic leading-[1.7] text-[#aaaaaa]">
+                <blockquote className="mb-7 text-[0.92rem] italic leading-[1.7] text-foreground/70">
                   {t.quote}
                 </blockquote>
                 <div className="flex items-center gap-3.5">

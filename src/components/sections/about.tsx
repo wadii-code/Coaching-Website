@@ -22,7 +22,7 @@ export function About() {
             </h2>
             <div className="mb-10 mt-6 h-[3px] w-12 bg-crimson" />
 
-            <div className="space-y-5 text-base leading-[1.8] text-[#aaaaaa]">
+            <div className="space-y-5 text-base leading-[1.8] text-foreground/70">
               <p>
                 3OCTBR was born from a simple truth: real transformation happens
                 in the moments no one sees. The discipline to show up when
@@ -47,7 +47,7 @@ export function About() {
               {PILLARS.map((p) => (
                 <div
                   key={p.title}
-                  className="border-l-[3px] border-crimson bg-card p-6 transition-colors hover:bg-[#1c1c1c]"
+                  className="border-l-[3px] border-crimson bg-card p-6 transition-colors hover:bg-accent"
                 >
                   <div className="mb-2 font-condensed text-lg font-bold uppercase tracking-[0.1em] text-foreground">
                     {p.title}
@@ -83,7 +83,7 @@ export function About() {
                 <div className="mb-4 mt-1 text-xs font-semibold uppercase tracking-[0.14em] text-crimson">
                   {COACH.title}
                 </div>
-                <p className="mb-5 text-sm leading-[1.7] text-[#aaaaaa]">
+                <p className="mb-5 text-sm leading-[1.7] text-foreground/70">
                   {COACH.bio}
                 </p>
                 <div className="flex flex-wrap gap-2">

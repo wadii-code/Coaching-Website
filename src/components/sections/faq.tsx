@@ -54,7 +54,7 @@ export function Faq() {
                       +
                     </span>
                   </AccordionTrigger>
-                  <AccordionContent className="pb-6 text-[0.9rem] leading-[1.8] text-[#aaaaaa]">
+                  <AccordionContent className="pb-6 text-[0.9rem] leading-[1.8] text-foreground/70">
                     {f.a}
                   </AccordionContent>
                 </AccordionItem>

@@ -54,7 +54,7 @@ export function Programs() {
                       key={f.text}
                       className={cn(
                         "flex items-start gap-2.5 text-sm leading-snug",
-                        f.dim ? "text-muted-foreground/50" : "text-[#aaaaaa]",
+                        f.dim ? "text-muted-foreground/50" : "text-foreground/70",
                       )}
                     >
                       <ArrowRight

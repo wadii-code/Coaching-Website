@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import { ThemeToggleButton } from "@/components/ui/theme-toggle-button";
 import { Link000 } from "@/components/ui/skiper-ui/skiper40";
 import { NAV_LINKS } from "@/lib/data";
 
@@ -53,6 +54,7 @@ export function Navbar() {
               {l.label}
             </Link000>
           ))}
+          <ThemeToggleButton />
           <Button
             asChild
             size="sm"
@@ -62,15 +64,18 @@ export function Navbar() {
           </Button>
         </nav>
 
-        <button
-          type="button"
-          onClick={() => setOpen((v) => !v)}
-          aria-label={open ? "Close menu" : "Open menu"}
-          aria-expanded={open}
-          className="flex size-10 items-center justify-center text-foreground md:hidden"
-        >
-          {open ? <X className="size-6" /> : <Menu className="size-6" />}
-        </button>
+        <div className="flex items-center gap-2 md:hidden">
+          <ThemeToggleButton />
+          <button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            className="flex size-10 items-center justify-center text-foreground"
+          >
+            {open ? <X className="size-6" /> : <Menu className="size-6" />}
+          </button>
+        </div>
       </header>
 
       <div

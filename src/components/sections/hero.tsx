@@ -9,15 +9,8 @@ export function Hero() {
       id="hero"
       className="relative flex min-h-screen items-end overflow-hidden bg-background"
     >
-      {/* Layered gradient backdrop */}
-      <div
-        aria-hidden
-        className="absolute inset-0"
-        style={{
-          background:
-            "linear-gradient(to bottom, rgba(8,8,8,0.3) 0%, rgba(8,8,8,0.85) 100%), linear-gradient(135deg, #0a0a0a 0%, #1a0a0a 40%, #0f0508 100%)",
-        }}
-      />
+      {/* Layered gradient backdrop (theme-aware) */}
+      <div aria-hidden className="hero-backdrop absolute inset-0" />
       {/* Animated crimson grid */}
       <div aria-hidden className="hero-grid absolute inset-0" />
       {/* Diagonal red slash */}
@@ -53,7 +46,7 @@ export function Hero() {
         </Reveal>
 
         <Reveal delay={7}>
-          <p className="mb-12 max-w-[480px] text-base font-light leading-[1.7] text-[#aaaaaa]">
+          <p className="mb-12 max-w-[480px] text-base font-light leading-[1.7] text-foreground/70">
             Personalized fitness coaching designed to help you achieve
             sustainable results — built on science, accountability, and
             relentless commitment to your growth.
