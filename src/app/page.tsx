@@ -9,7 +9,6 @@ import { Programs } from "@/components/sections/programs";
 import { Process } from "@/components/sections/process";
 import { BlogPreview } from "@/components/sections/blog-preview";
 import { Faq } from "@/components/sections/faq";
-import { GooeyAccent } from "@/components/sections/gooey-accent";
 import { Newsletter } from "@/components/sections/newsletter";
 import { Contact } from "@/components/sections/contact";
 
@@ -27,7 +26,6 @@ export default function Home() {
         <Process />
         <BlogPreview />
         <Faq />
-        <GooeyAccent />
         <Newsletter />
         <Contact />
       </main>
