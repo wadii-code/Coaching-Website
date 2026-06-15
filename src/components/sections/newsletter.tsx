@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { toast } from "sonner";
+import { SmoothInput } from "@/components/ui/smooth-input";
 
 export function Newsletter() {
   const [email, setEmail] = useState("");
@@ -34,21 +35,25 @@ export function Newsletter() {
           </h3>
         </div>
 
-        <form onSubmit={onSubmit} className="flex w-full min-w-0 max-w-[480px]">
-          <input
-            type="email"
+        <form
+          onSubmit={onSubmit}
+          className="flex w-full min-w-0 max-w-[520px] items-stretch gap-2"
+        >
+          <SmoothInput
+            type="text"
+            inputMode="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             disabled={done}
-            required
             placeholder="Enter your email address"
             aria-label="Email address"
-            className="min-w-0 flex-1 border border-r-0 border-border bg-card px-5 py-4 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:border-crimson disabled:opacity-70"
+            fontSize={17}
+            wrapperClassName="flex-1 rounded-xl p-3.5"
           />
           <button
             type="submit"
             disabled={done}
-            className="whitespace-nowrap bg-crimson px-7 py-4 text-xs font-bold uppercase tracking-[0.16em] text-white transition-colors hover:bg-crimson-hover disabled:opacity-70"
+            className="whitespace-nowrap rounded-xl bg-crimson px-7 text-xs font-bold uppercase tracking-[0.16em] text-white transition-colors hover:bg-crimson-hover disabled:opacity-70"
           >
             {done ? "✓ Subscribed" : "Subscribe"}
           </button>
