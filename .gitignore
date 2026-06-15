@@ -37,7 +37,11 @@ yarn-error.log*
 # local dev / tooling artifacts
 /.dev-server.log
 /.playwright-mcp/
-/foundation-home.png
+# stray screenshots at repo root (real assets live in /public)
+/*.png
+
+# machine-local Claude Code settings (keep launch.json shared)
+.claude/settings.local.json
 
 # vercel
 .vercel

@@ -1,0 +1,106 @@
+import { UserRound } from "lucide-react";
+import { Reveal } from "@/components/motion/reveal";
+import { PILLARS, COACH } from "@/lib/data";
+
+export function About() {
+  return (
+    <section
+      id="about"
+      className="border-t border-border bg-elevated px-6 py-24 md:px-20 md:py-28"
+    >
+      <div className="mx-auto max-w-[1280px]">
+        <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2 md:gap-20">
+          {/* Left — philosophy */}
+          <Reveal>
+            <span className="font-condensed text-xs font-bold uppercase tracking-[0.22em] text-crimson">
+              Who We Are
+            </span>
+            <h2 className="mt-3 font-display text-[clamp(2.4rem,5vw,5rem)] leading-[0.95] tracking-[0.03em] text-foreground">
+              The <span className="text-crimson">3OCTBR</span>
+              <br />
+              Philosophy
+            </h2>
+            <div className="mb-10 mt-6 h-[3px] w-12 bg-crimson" />
+
+            <div className="space-y-5 text-base leading-[1.8] text-[#aaaaaa]">
+              <p>
+                3OCTBR was born from a simple truth: real transformation happens
+                in the moments no one sees. The discipline to show up when
+                motivation runs dry. The commitment to the process before the
+                result arrives. October — the third month of Q4 — is when most
+                people quit. We don&apos;t.
+              </p>
+              <p>
+                We build programs grounded in exercise science, behavioral
+                psychology, and individualized data — not generic templates.
+                Every client receives a coaching experience tailored to their
+                unique physiology, lifestyle, and goals.
+              </p>
+              <p>
+                Whether you&apos;re a complete beginner or a seasoned athlete,
+                our methodology scales to you. Because the only competition that
+                matters is who you were yesterday.
+              </p>
+            </div>
+
+            <div className="mt-10 grid grid-cols-1 gap-0.5 sm:grid-cols-2">
+              {PILLARS.map((p) => (
+                <div
+                  key={p.title}
+                  className="border-l-[3px] border-crimson bg-card p-6 transition-colors hover:bg-[#1c1c1c]"
+                >
+                  <div className="mb-2 font-condensed text-lg font-bold uppercase tracking-[0.1em] text-foreground">
+                    {p.title}
+                  </div>
+                  <p className="text-sm leading-relaxed text-muted-foreground">
+                    {p.body}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </Reveal>
+
+          {/* Right — coach card */}
+          <Reveal delay={2}>
+            <div className="overflow-hidden border border-border bg-card">
+              <div className="relative flex aspect-[3/4] items-center justify-center bg-[linear-gradient(135deg,#1a1a1a_0%,#2a0a10_50%,#1a1a1a_100%)]">
+                <div
+                  aria-hidden
+                  className="absolute inset-0"
+                  style={{
+                    background:
+                      "radial-gradient(ellipse at 30% 30%, rgba(196,30,58,0.2) 0%, transparent 60%), radial-gradient(ellipse at 70% 70%, rgba(196,30,58,0.1) 0%, transparent 60%)",
+                  }}
+                />
+                <div className="relative flex size-20 items-center justify-center rounded-full border-2 border-crimson text-crimson">
+                  <UserRound className="size-9" strokeWidth={1.5} />
+                </div>
+              </div>
+              <div className="p-8">
+                <div className="font-display text-3xl tracking-[0.08em] text-foreground">
+                  {COACH.name}
+                </div>
+                <div className="mb-4 mt-1 text-xs font-semibold uppercase tracking-[0.14em] text-crimson">
+                  {COACH.title}
+                </div>
+                <p className="mb-5 text-sm leading-[1.7] text-[#aaaaaa]">
+                  {COACH.bio}
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {COACH.certs.map((c) => (
+                    <span
+                      key={c}
+                      className="border border-border px-3.5 py-1.5 text-[0.67rem] font-bold uppercase tracking-[0.12em] text-muted-foreground"
+                    >
+                      {c}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </div>
+    </section>
+  );
+}

@@ -34,6 +34,7 @@
   --color-crimson: var(--crimson);
   --color-crimson-hover: var(--crimson-hover);
   --color-surface: var(--card);
+  --color-elevated: var(--elevated);
 
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
@@ -71,6 +72,7 @@
 
   --card: #161616;
   --card-foreground: #f4f4f5;
+  --elevated: #111111;
   --popover: #131313;
   --popover-foreground: #f4f4f5;
 
@@ -144,5 +146,34 @@
       transparent 0
     );
     background-size: 40px 40px;
+  }
+
+  /* Animated crimson grid used behind the hero */
+  .hero-grid {
+    background-image:
+      linear-gradient(rgba(196, 30, 58, 0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(196, 30, 58, 0.045) 1px, transparent 1px);
+    background-size: 80px 80px;
+    animation: gridDrift 20s linear infinite;
+  }
+}
+
+@keyframes gridDrift {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(80px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
