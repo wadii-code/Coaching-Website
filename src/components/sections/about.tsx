@@ -12,7 +12,7 @@ export function About() {
         <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2 md:gap-20">
           {/* Left — philosophy */}
           <Reveal>
-            <span className="font-condensed text-xs font-bold uppercase tracking-[0.22em] text-crimson">
+            <span className="font-condensed text-xs font-bold uppercase tracking-[0.15em] text-crimson">
               Who We Are
             </span>
             <h2 className="mt-3 font-display text-[clamp(2.4rem,5vw,5rem)] leading-[0.95] tracking-[0.03em] text-foreground">
@@ -20,15 +20,13 @@ export function About() {
               <br />
               Philosophy
             </h2>
-            <div className="mb-10 mt-6 h-[3px] w-12 bg-crimson" />
-
-            <div className="space-y-5 text-base leading-[1.8] text-foreground/70">
+            <div className="mt-8 space-y-5 text-base leading-relaxed text-foreground/70">
               <p>
-                3OCTBR was born from a simple truth: real transformation happens
-                in the moments no one sees. The discipline to show up when
-                motivation runs dry. The commitment to the process before the
-                result arrives. October — the third month of Q4 — is when most
-                people quit. We don&apos;t.
+                October is when most people quit. The resolutions are long dead,
+                summer is over, and the holidays are the perfect excuse. 3OCTBR
+                stands for the opposite instinct: showing up when motivation is
+                gone and no one is watching. That&apos;s where real change is
+                built.
               </p>
               <p>
                 We build programs grounded in exercise science, behavioral

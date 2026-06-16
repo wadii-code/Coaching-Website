@@ -27,7 +27,7 @@ export function Newsletter() {
     >
       <div className="mx-auto flex max-w-[1280px] flex-col items-start justify-between gap-8 md:flex-row md:items-center">
         <div>
-          <span className="font-condensed text-xs font-bold uppercase tracking-[0.22em] text-crimson">
+          <span className="font-condensed text-xs font-bold uppercase tracking-[0.15em] text-crimson">
             Stay Ahead
           </span>
           <h3 className="mt-2 font-display text-4xl tracking-[0.04em] text-foreground">

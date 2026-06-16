@@ -9,7 +9,7 @@ export function BlogPreview() {
     <section id="blog" className="bg-background px-6 py-24 md:px-20 md:py-28">
       <div className="mx-auto max-w-[1280px]">
         <Reveal>
-          <SectionHeading eyebrow="Knowledge & Education">
+          <SectionHeading eyebrow="Knowledge & Education" divider={false}>
             From the <span className="text-crimson">Blog</span>
           </SectionHeading>
         </Reveal>
@@ -19,7 +19,7 @@ export function BlogPreview() {
             {POSTS.map((post) => (
               <Link
                 key={post.slug}
-                href={`/blog/${post.slug}`}
+                href="#blog"
                 className={cn(
                   "group block overflow-hidden bg-card transition-transform duration-300 hover:-translate-y-1",
                   post.featured && "sm:col-span-2 lg:col-span-1",

@@ -40,30 +40,26 @@ export function Hero() {
       <div className="relative z-10 max-w-[900px] px-6 pb-24 md:px-20 md:pb-28">
         <Reveal delay={3} className="mb-7 flex items-center gap-3">
           <span className="block h-0.5 w-8 bg-crimson" />
-          <span className="font-condensed text-xs font-bold uppercase tracking-[0.22em] text-crimson">
+          <span className="font-condensed text-xs font-bold uppercase tracking-[0.15em] text-crimson">
             Elite Performance Coaching
           </span>
         </Reveal>
 
         <Reveal delay={5}>
           <h1 className="mb-8 font-display text-[clamp(4rem,9vw,9rem)] leading-[0.9] tracking-[0.02em] text-white">
-            Unlock Your
+            Stop Guessing.
             <br />
-            <span className="text-crimson">Potential.</span>
+            Start Training
             <br />
-            <span className="md:pl-20">Transform.</span>
-            <br />
-            Elevate Your
-            <br />
-            <span className="text-crimson">Life.</span>
+            With <span className="text-crimson">Proof.</span>
           </h1>
         </Reveal>
 
         <Reveal delay={7}>
-          <p className="mb-12 max-w-[480px] text-base font-light leading-[1.7] text-white/70">
-            Personalized fitness coaching designed to help you achieve
-            sustainable results — built on science, accountability, and
-            relentless commitment to your growth.
+          <p className="mb-12 max-w-[460px] text-base font-light leading-relaxed text-white/70">
+            Every plan is built from your numbers and tuned every week. No
+            fluff. Just a system that shows you exactly what&apos;s working and
+            what to do next.
           </p>
         </Reveal>
 

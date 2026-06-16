@@ -1,8 +1,10 @@
 import Link from "next/link";
-import { Link000 } from "@/components/ui/skiper-ui/skiper40";
+import { AnimatedLink } from "@/components/ui/animated-link";
 import { FOOTER_COLUMNS } from "@/lib/data";
 
 export function Footer() {
+  const year = new Date().getFullYear();
+
   return (
     <footer className="border-t border-border bg-elevated px-6 pb-10 pt-16 md:px-12">
       <div className="mx-auto grid max-w-[1280px] grid-cols-1 gap-12 pb-14 sm:grid-cols-2 md:grid-cols-[2fr_1fr_1fr_1fr]">
@@ -30,12 +32,12 @@ export function Footer() {
             <ul className="space-y-2.5">
               {col.links.map((l, i) => (
                 <li key={`${l.label}-${i}`}>
-                  <Link000
+                  <AnimatedLink
                     href={l.href}
                     className="text-sm text-muted-foreground transition-colors hover:text-foreground"
                   >
                     {l.label}
-                  </Link000>
+                  </AnimatedLink>
                 </li>
               ))}
             </ul>
@@ -45,7 +47,7 @@ export function Footer() {
 
       <div className="mx-auto flex max-w-[1280px] flex-col items-start justify-between gap-4 border-t border-border pt-7 sm:flex-row sm:items-center">
         <p className="text-xs text-muted-foreground">
-          © 2025 3OCTBR Coaching. All rights reserved.
+          © {year} 3OCTBR Coaching. All rights reserved.
         </p>
         <div className="flex flex-wrap gap-6">
           <Link
@@ -66,14 +68,6 @@ export function Footer() {
           >
             Cookie Policy
           </Link>
-          <a
-            href="https://skiper-ui.com"
-            target="_blank"
-            rel="noreferrer"
-            className="text-xs text-muted-foreground/50 transition-colors hover:text-foreground"
-          >
-            UI by Skiper
-          </a>
         </div>
       </div>
     </footer>

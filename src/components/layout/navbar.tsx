@@ -6,7 +6,7 @@ import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { ThemeToggleButton } from "@/components/ui/theme-toggle-button";
-import { Link000 } from "@/components/ui/skiper-ui/skiper40";
+import { AnimatedLink } from "@/components/ui/animated-link";
 import { NAV_LINKS } from "@/lib/data";
 
 export function Navbar() {
@@ -46,13 +46,13 @@ export function Navbar() {
 
         <nav className="hidden items-center gap-9 md:flex">
           {NAV_LINKS.map((l) => (
-            <Link000
+            <AnimatedLink
               key={l.href}
               href={l.href}
               className="text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground transition-colors hover:text-foreground"
             >
               {l.label}
-            </Link000>
+            </AnimatedLink>
           ))}
           <ThemeToggleButton />
           <Button

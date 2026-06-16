@@ -31,7 +31,7 @@ export function Contact() {
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1fr_1.25fr] lg:gap-16">
           {/* Left — info + socials */}
           <Reveal>
-            <span className="font-condensed text-xs font-bold uppercase tracking-[0.22em] text-crimson">
+            <span className="font-condensed text-xs font-bold uppercase tracking-[0.15em] text-crimson">
               Ready to Begin
             </span>
             <h2 className="mt-3 font-display text-[clamp(2.4rem,5vw,5rem)] leading-[0.95] tracking-[0.03em] text-foreground">

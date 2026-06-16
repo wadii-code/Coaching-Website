@@ -91,7 +91,7 @@ export function Process() {
 
       <div ref={container} className="relative mx-auto max-w-[1280px]">
         {PROCESS_STEPS.map((step, i) => {
-          const targetScale = 1 - (PROCESS_STEPS.length - i - 1) * 0.04;
+          const targetScale = 1 - (PROCESS_STEPS.length - i - 1) * 0.07;
           return (
             <StepCard
               key={step.n}

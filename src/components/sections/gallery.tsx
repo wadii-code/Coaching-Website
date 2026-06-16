@@ -87,7 +87,7 @@ export function Gallery() {
       <ScrollStroke className="opacity-[0.12]" />
       <div className="relative mx-auto max-w-[1280px] px-6 md:px-20">
         <Reveal>
-          <SectionHeading eyebrow="Inside the Work">
+          <SectionHeading eyebrow="Inside the Work" divider={false}>
             The <span className="text-crimson">Grind</span>
           </SectionHeading>
         </Reveal>

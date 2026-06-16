@@ -49,12 +49,21 @@ export const metadata: Metadata = {
       "Elite, data-driven coaching for fat loss, muscle building, and sports performance.",
     url: siteUrl,
     siteName: "3OCTBR",
+    images: [
+      {
+        url: "/images/hero-poster.png",
+        width: 2048,
+        height: 1152,
+        alt: "3OCTBR — Elite Performance Coaching",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "3OCTBR — Elite Performance Coaching",
     description:
       "Elite, data-driven coaching for fat loss, muscle building, and sports performance.",
+    images: ["/images/hero-poster.png"],
   },
   robots: { index: true, follow: true },
 };

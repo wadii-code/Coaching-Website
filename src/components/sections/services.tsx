@@ -10,7 +10,7 @@ export function Services() {
     >
       <div className="mx-auto max-w-[1280px]">
         <Reveal>
-          <SectionHeading eyebrow="What We Offer">
+          <SectionHeading eyebrow="What We Offer" divider={false}>
             Coaching <span className="text-crimson">Services</span>
           </SectionHeading>
         </Reveal>
