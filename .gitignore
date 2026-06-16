@@ -43,6 +43,9 @@ yarn-error.log*
 # machine-local Claude Code settings (keep launch.json shared)
 .claude/settings.local.json
 
+# misc tooling
+/.mimocode/
+
 # vercel
 .vercel
 

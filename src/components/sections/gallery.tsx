@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform, type MotionValue } from "framer-motion";
 import { Reveal } from "@/components/motion/reveal";
@@ -9,53 +10,33 @@ import { cn } from "@/lib/utils";
 
 /**
  * Parallax column gallery adapted from Skiper UI skiper30 (Lenis removed —
- * Framer's useScroll drives the parallax directly). Panels are themed
- * placeholders; real photography (e.g. Higgsfield) can drop straight in.
+ * Framer's useScroll drives the parallax). Four Higgsfield training shots are
+ * distributed across the four columns / twelve panels.
  */
 
-const PANELS = [
-  "Strength",
-  "Conditioning",
-  "Mobility",
-  "Hypertrophy",
-  "Nutrition",
-  "Power",
-  "Recovery",
-  "Endurance",
-  "Discipline",
-  "Form",
-  "Mindset",
-  "Progress",
+const G = (n: number) => `/images/gallery/g${n}.png`;
+
+const COLS = [
+  [G(1), G(2), G(3)],
+  [G(4), G(1), G(2)],
+  [G(3), G(4), G(1)],
+  [G(2), G(3), G(4)],
 ];
 
-const GRADIENTS = [
-  "linear-gradient(135deg,#1a1a1a_0%,#2a0a10_60%,#161616_100%)",
-  "linear-gradient(135deg,#161616_0%,#3a0c18_55%,#1a1a1a_100%)",
-  "linear-gradient(135deg,#1c1c1c_0%,#240810_60%,#141414_100%)",
-];
-
-function Panel({ label, i }: { label: string; i: number }) {
+function Panel({ src }: { src: string }) {
   return (
     <div className="relative h-full w-full overflow-hidden rounded-xl border border-border">
-      <div
-        className="flex h-full w-full items-center justify-center"
-        style={{ backgroundImage: GRADIENTS[i % GRADIENTS.length] }}
-      >
-        <div aria-hidden className="bg-grid absolute inset-0 opacity-40" />
-        <span className="relative font-display text-2xl uppercase tracking-[0.12em] text-foreground/70">
-          {label}
-        </span>
-      </div>
+      <Image src={src} alt="" fill sizes="(max-width: 768px) 50vw, 25vw" className="object-cover" />
     </div>
   );
 }
 
 function Column({
-  items,
+  images,
   y,
   className,
 }: {
-  items: { label: string; i: number }[];
+  images: string[];
   y: MotionValue<number>;
   className?: string;
 }) {
@@ -67,8 +48,8 @@ function Column({
         className,
       )}
     >
-      {items.map((p) => (
-        <Panel key={p.label} label={p.label} i={p.i} />
+      {images.map((src, i) => (
+        <Panel key={i} src={src} />
       ))}
     </motion.div>
   );
@@ -95,12 +76,8 @@ export function Gallery() {
     return () => window.removeEventListener("resize", resize);
   }, []);
 
-  const cols = [
-    { items: indexed([PANELS[0], PANELS[1], PANELS[2]], 0), y, top: "-top-[45%]" },
-    { items: indexed([PANELS[3], PANELS[4], PANELS[5]], 1), y: y2, top: "-top-[95%]" },
-    { items: indexed([PANELS[6], PANELS[7], PANELS[8]], 2), y: y3, top: "-top-[45%]" },
-    { items: indexed([PANELS[9], PANELS[10], PANELS[11]], 0), y: y4, top: "-top-[75%]" },
-  ];
+  const ys = [y, y2, y3, y4];
+  const tops = ["-top-[45%]", "-top-[95%]", "-top-[45%]", "-top-[75%]"];
 
   return (
     <section
@@ -120,14 +97,10 @@ export function Gallery() {
         ref={gallery}
         className="relative box-border flex h-[175vh] gap-[2vw] overflow-hidden p-[2vw]"
       >
-        {cols.map((c, idx) => (
-          <Column key={idx} items={c.items} y={c.y} className={c.top} />
+        {COLS.map((images, idx) => (
+          <Column key={idx} images={images} y={ys[idx]} className={tops[idx]} />
         ))}
       </div>
     </section>
   );
-}
-
-function indexed(labels: string[], base: number) {
-  return labels.map((label, k) => ({ label, i: base + k }));
 }

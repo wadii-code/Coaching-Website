@@ -1,4 +1,4 @@
-import { UserRound } from "lucide-react";
+import Image from "next/image";
 import { Reveal } from "@/components/motion/reveal";
 import { PILLARS, COACH } from "@/lib/data";
 
@@ -63,18 +63,18 @@ export function About() {
           {/* Right — coach card */}
           <Reveal delay={2}>
             <div className="overflow-hidden border border-border bg-card">
-              <div className="relative flex aspect-[3/4] items-center justify-center bg-[linear-gradient(135deg,#1a1a1a_0%,#2a0a10_50%,#1a1a1a_100%)]">
+              <div className="relative aspect-[3/4] overflow-hidden">
+                <Image
+                  src="/images/coach.png"
+                  alt="Marcus R., Head Coach & Founder of 3OCTBR"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 40vw"
+                  className="object-cover"
+                />
                 <div
                   aria-hidden
-                  className="absolute inset-0"
-                  style={{
-                    background:
-                      "radial-gradient(ellipse at 30% 30%, rgba(196,30,58,0.2) 0%, transparent 60%), radial-gradient(ellipse at 70% 70%, rgba(196,30,58,0.1) 0%, transparent 60%)",
-                  }}
+                  className="absolute inset-0 bg-gradient-to-t from-card/80 via-transparent to-transparent"
                 />
-                <div className="relative flex size-20 items-center justify-center rounded-full border-2 border-crimson text-crimson">
-                  <UserRound className="size-9" strokeWidth={1.5} />
-                </div>
               </div>
               <div className="p-8">
                 <div className="font-display text-3xl tracking-[0.08em] text-foreground">

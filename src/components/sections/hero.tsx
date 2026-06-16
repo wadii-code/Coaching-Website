@@ -7,13 +7,27 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative flex min-h-screen items-end overflow-hidden bg-background"
+      className="relative flex min-h-screen items-end overflow-hidden bg-[#080808]"
     >
-      {/* Layered gradient backdrop (theme-aware) */}
-      <div aria-hidden className="hero-backdrop absolute inset-0" />
-      {/* Animated crimson grid */}
-      <div aria-hidden className="hero-grid absolute inset-0" />
-      {/* Diagonal red slash */}
+      {/* Background video (falls back to the poster image while loading / if unsupported) */}
+      <video
+        className="absolute inset-0 h-full w-full object-cover"
+        autoPlay
+        muted
+        loop
+        playsInline
+        poster="/images/hero-poster.png"
+      >
+        <source src="/videos/hero.mp4" type="video/mp4" />
+      </video>
+
+      {/* Dark legibility overlay — the hero stays dark in both themes */}
+      <div
+        aria-hidden
+        className="absolute inset-0 bg-gradient-to-t from-[#080808] via-[#080808]/80 to-[#080808]/40"
+      />
+      {/* Faint crimson grid + diagonal slash */}
+      <div aria-hidden className="hero-grid absolute inset-0 opacity-60" />
       <div
         aria-hidden
         className="absolute right-[10%] top-0 h-full w-[3px] opacity-60 [transform:skewX(-8deg)]"
@@ -32,7 +46,7 @@ export function Hero() {
         </Reveal>
 
         <Reveal delay={5}>
-          <h1 className="mb-8 font-display text-[clamp(4rem,9vw,9rem)] leading-[0.9] tracking-[0.02em] text-foreground">
+          <h1 className="mb-8 font-display text-[clamp(4rem,9vw,9rem)] leading-[0.9] tracking-[0.02em] text-white">
             Unlock Your
             <br />
             <span className="text-crimson">Potential.</span>
@@ -46,7 +60,7 @@ export function Hero() {
         </Reveal>
 
         <Reveal delay={7}>
-          <p className="mb-12 max-w-[480px] text-base font-light leading-[1.7] text-foreground/70">
+          <p className="mb-12 max-w-[480px] text-base font-light leading-[1.7] text-white/70">
             Personalized fitness coaching designed to help you achieve
             sustainable results — built on science, accountability, and
             relentless commitment to your growth.
@@ -57,25 +71,25 @@ export function Hero() {
           <CtaButton href="#programs" variant="primary">
             Start Your Journey
           </CtaButton>
-          <CtaButton href="#contact" variant="outline">
+          <CtaButton href="#contact" variant="outline" className="text-white">
             Book a Consultation
           </CtaButton>
         </Reveal>
       </div>
 
       {/* Stats bar */}
-      <div className="absolute bottom-0 right-0 z-10 hidden border-l border-t border-border sm:flex">
+      <div className="absolute bottom-0 right-0 z-10 hidden border-l border-t border-white/15 bg-[#080808]/40 backdrop-blur-sm sm:flex">
         {HERO_STATS.map((s) => (
           <div
             key={s.label}
-            className="border-r border-border px-10 py-6 text-center last:border-r-0"
+            className="border-r border-white/15 px-10 py-6 text-center last:border-r-0"
           >
             <Counter
               value={s.value}
               suffix={s.suffix}
-              className="font-display text-[2.6rem] leading-none tracking-[0.04em] text-foreground"
+              className="font-display text-[2.6rem] leading-none tracking-[0.04em] text-white"
             />
-            <div className="mt-1 text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+            <div className="mt-1 text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-white/60">
               {s.label}
             </div>
           </div>
