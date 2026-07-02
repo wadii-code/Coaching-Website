@@ -1,6 +1,10 @@
+import { Fragment } from "react";
 import { Reveal } from "@/components/motion/reveal";
 import { Counter } from "@/components/motion/counter";
+import { TextReveal } from "@/components/motion/text-reveal";
+import { Magnetic } from "@/components/motion/magnetic";
 import { CtaButton } from "@/components/ui/cta-button";
+import { HeroVideo } from "@/components/ui/hero-video";
 import { HERO_STATS } from "@/lib/data";
 
 export function Hero() {
@@ -9,17 +13,12 @@ export function Hero() {
       id="hero"
       className="relative flex min-h-screen items-end overflow-hidden bg-[#080808]"
     >
-      {/* Background video (falls back to the poster image while loading / if unsupported) */}
-      <video
+      {/* Background video — pauses itself while off-screen */}
+      <HeroVideo
+        src="/videos/hero.mp4"
+        poster="/images/hero-poster.webp"
         className="absolute inset-0 h-full w-full object-cover"
-        autoPlay
-        muted
-        loop
-        playsInline
-        poster="/images/hero-poster.png"
-      >
-        <source src="/videos/hero.mp4" type="video/mp4" />
-      </video>
+      />
 
       {/* Dark legibility overlay — the hero stays dark in both themes */}
       <div
@@ -45,15 +44,18 @@ export function Hero() {
           </span>
         </Reveal>
 
-        <Reveal delay={5}>
-          <h1 className="mb-8 font-display text-[clamp(4rem,9vw,9rem)] leading-[0.9] tracking-[0.02em] text-white">
-            Stop Guessing.
-            <br />
-            Start Training
-            <br />
-            With <span className="text-crimson">Proof.</span>
-          </h1>
-        </Reveal>
+        <h1 className="mb-8 font-display text-[clamp(4rem,9vw,9rem)] leading-[0.9] tracking-[0.02em] text-white">
+          <TextReveal
+            delay={0.35}
+            lines={[
+              "Stop Guessing.",
+              "Start Training",
+              <Fragment key="proof">
+                With <span className="text-gradient-crimson">Proof.</span>
+              </Fragment>,
+            ]}
+          />
+        </h1>
 
         <Reveal delay={7}>
           <p className="mb-12 max-w-[460px] text-base font-light leading-relaxed text-white/70">
@@ -64,13 +66,30 @@ export function Hero() {
         </Reveal>
 
         <Reveal delay={9} className="flex flex-wrap gap-4">
-          <CtaButton href="#programs" variant="primary">
-            Start Your Journey
-          </CtaButton>
-          <CtaButton href="#contact" variant="outline" className="text-white">
-            Book a Consultation
-          </CtaButton>
+          <Magnetic>
+            <CtaButton href="#programs" variant="primary" className="glow-crimson">
+              Start Your Journey
+            </CtaButton>
+          </Magnetic>
+          <Magnetic>
+            <CtaButton href="#contact" variant="outline" className="text-white">
+              Book a Consultation
+            </CtaButton>
+          </Magnetic>
         </Reveal>
+      </div>
+
+      {/* Scroll hint */}
+      <div
+        aria-hidden
+        className="absolute bottom-8 left-1/2 z-10 hidden -translate-x-1/2 flex-col items-center gap-3 lg:flex"
+      >
+        <span className="font-condensed text-[0.6rem] font-bold uppercase tracking-[0.3em] text-white/40">
+          Scroll
+        </span>
+        <span className="block h-12 w-px overflow-hidden bg-white/15">
+          <span className="scroll-hint-line block h-1/2 w-full bg-crimson" />
+        </span>
       </div>
 
       {/* Stats bar */}

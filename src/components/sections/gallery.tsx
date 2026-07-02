@@ -14,7 +14,7 @@ import { cn } from "@/lib/utils";
  * distributed across the four columns / twelve panels.
  */
 
-const G = (n: number) => `/images/gallery/g${n}.png`;
+const G = (n: number) => `/images/gallery/g${n}.webp`;
 
 const COLS = [
   [G(1), G(2), G(3)],
@@ -44,7 +44,7 @@ function Column({
     <motion.div
       style={{ y }}
       className={cn(
-        "relative flex h-full w-1/4 min-w-[160px] flex-col gap-[2vw]",
+        "relative flex h-full w-1/4 min-w-[160px] flex-col gap-[2vw] will-change-transform",
         className,
       )}
     >

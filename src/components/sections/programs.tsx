@@ -1,6 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import { Reveal } from "@/components/motion/reveal";
 import { SectionHeading } from "@/components/sections/section-heading";
+import { SpotlightCard } from "@/components/ui/spotlight-card";
 import { CtaButton } from "@/components/ui/cta-button";
 import { PROGRAMS } from "@/lib/data";
 import { cn } from "@/lib/utils";
@@ -18,14 +19,15 @@ export function Programs() {
         <div className="grid grid-cols-1 gap-0.5 lg:grid-cols-3">
           {PROGRAMS.map((p, i) => (
             <Reveal key={p.name} delay={i} className="h-full">
-              <div
-                className={cn(
-                  "relative flex h-full flex-col border p-10 transition-transform duration-300 hover:-translate-y-1.5",
-                  p.featured
-                    ? "border-crimson bg-[linear-gradient(to_bottom,rgba(196,30,58,0.06)_0%,var(--card)_100%)]"
-                    : "border-border bg-card",
-                )}
-              >
+              <SpotlightCard className="h-full transition-transform duration-300 hover:-translate-y-1.5">
+                <div
+                  className={cn(
+                    "relative flex h-full flex-col border p-10",
+                    p.featured
+                      ? "border-crimson bg-[linear-gradient(to_bottom,rgba(196,30,58,0.06)_0%,var(--card)_100%)]"
+                      : "border-border bg-card",
+                  )}
+                >
                 {p.badge && (
                   <span className="absolute right-8 top-[-1px] bg-crimson px-4.5 py-1.5 text-[0.65rem] font-bold uppercase tracking-[0.16em] text-white">
                     {p.badge}
@@ -75,7 +77,8 @@ export function Programs() {
                 >
                   {p.cta}
                 </CtaButton>
-              </div>
+                </div>
+              </SpotlightCard>
             </Reveal>
           ))}
         </div>

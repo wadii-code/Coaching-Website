@@ -63,7 +63,7 @@ export function About() {
             <div className="overflow-hidden border border-border bg-card">
               <div className="relative aspect-[3/4] overflow-hidden">
                 <Image
-                  src="/images/coach.png"
+                  src="/images/coach.webp"
                   alt="Marcus R., Head Coach & Founder of 3OCTBR"
                   fill
                   sizes="(max-width: 768px) 100vw, 40vw"

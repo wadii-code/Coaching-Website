@@ -178,6 +178,16 @@
     background: var(--crimson);
     color: #ffffff;
   }
+  /* Slim crimson scrollbar — carried over from the original site */
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--background);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--crimson);
+  }
 }
 
 @layer utilities {
@@ -215,6 +225,67 @@
     background:
       linear-gradient(to bottom, rgba(8, 8, 8, 0.3) 0%, rgba(8, 8, 8, 0.85) 100%),
       linear-gradient(135deg, #0a0a0a 0%, #1a0a0a 40%, #0f0508 100%);
+  }
+
+  /* Film-grain texture over the whole page — the analog, handcrafted layer */
+  .noise-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    pointer-events: none;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* Infinite marquee band */
+  .marquee-track {
+    animation: marquee 36s linear infinite;
+  }
+  .marquee-track:hover {
+    animation-play-state: paused;
+  }
+
+  /* Animated crimson gradient text (hero accent word) */
+  .text-gradient-crimson {
+    background: linear-gradient(100deg, var(--crimson), #ff4d6d, var(--crimson));
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: gradient-shift 5s ease-in-out infinite;
+  }
+
+  /* Hero scroll-hint line */
+  .scroll-hint-line {
+    animation: scroll-hint 1.8s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes gradient-shift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes scroll-hint {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(200%);
   }
 }
 

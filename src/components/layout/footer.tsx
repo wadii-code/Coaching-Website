@@ -70,6 +70,16 @@ export function Footer() {
           </Link>
         </div>
       </div>
+
+      {/* Giant cropped wordmark — editorial sign-off */}
+      <div
+        aria-hidden
+        className="pointer-events-none mx-auto max-w-[1280px] select-none overflow-hidden pt-10"
+      >
+        <p className="translate-y-[24%] text-center font-display text-[clamp(5rem,17vw,17rem)] leading-[0.75] tracking-[0.04em] text-foreground/[0.05]">
+          3<span className="text-crimson/15">/</span>OCTBR
+        </p>
+      </div>
     </footer>
   );
 }
